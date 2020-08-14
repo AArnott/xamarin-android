@@ -1812,7 +1812,7 @@ because xbuild doesn't support framework reference assemblies.
   DependsOnTargets="_PrepareAssemblies"
   Inputs="$(_AndroidLinkFlag)"
   Outputs="$(_RemoveRegisterFlag)"
-  Condition="'$(AndroidLinkMode)' != 'None' AND '$(Optimize)' == 'true'">
+  Condition="'$(AndroidLinkMode)' != 'None' AND '$(AndroidIncludeDebugSymbols)' != 'true'">
 
   <!-- Make a copy of every assembly into assets\shrunk -->
   <CopyIfChanged

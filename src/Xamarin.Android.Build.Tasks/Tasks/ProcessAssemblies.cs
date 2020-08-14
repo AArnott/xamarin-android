@@ -23,7 +23,7 @@ namespace Xamarin.Android.Tasks
 
 		public string LinkMode { get; set; }
 
-		public bool Optimize { get; set; }
+		public bool IncludeDebugSymbols { get; set; }
 
 		[Required]
 		public string IntermediateAssemblyDirectory { get; set; }
@@ -101,7 +101,7 @@ namespace Xamarin.Android.Tasks
 			}
 
 			// Set ShrunkAssemblies for _RemoveRegisterAttribute and <BuildApk/>
-			if (!string.IsNullOrEmpty (LinkMode) && !string.Equals (LinkMode, "None", StringComparison.OrdinalIgnoreCase) && Optimize) {
+			if (!string.IsNullOrEmpty (LinkMode) && !string.Equals (LinkMode, "None", StringComparison.OrdinalIgnoreCase) && !IncludeDebugSymbols) {
 				ShrunkAssemblies = OutputAssemblies.Select (a => {
 					var dir = Path.GetDirectoryName (a.ItemSpec);
 					var file = Path.GetFileName (a.ItemSpec);
